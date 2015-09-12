@@ -1,5 +1,5 @@
 //Joseph Inglis
-//cyclometer
+//Check
 //
 //use the scanner class to obtain cost of check, tip, and ways to split check
 
