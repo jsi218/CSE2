@@ -1,5 +1,5 @@
 //Joseph Inglis
-//Block
+//Card Generator
 //
 //use random number generator and if statement to pick a card, 
 //assign a siut name, 
