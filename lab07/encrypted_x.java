@@ -22,15 +22,16 @@ public class encrypted_x {
     while ( !acceptable ) {
         
         if ( myScanner.hasNextInt() ) { //check if input is an integer
-        xnumber = myScanner.nextInt(); //accept user input for monday expenses
-        acceptable = true; //if input is acceptable then store value
+            xnumber = myScanner.nextInt(); //accept user input for monday expenses
+            
             if ( xnumber >=0 && xnumber <= 100 ) { //checks to see if input is within accepted range
-                continue;
+                acceptable = true; //if input is acceptable then store value
+        
             }
             else {
                 System.out.println("Not a valid integer, try again"); 
                 System.out.print("Enter an integer from 0 - 100: "); 
-                myScanner.next(); //if input is invalid then enter a new one
+                myScanner.nextLine(); //if input is invalid then enter a new one
             }
         }
         
