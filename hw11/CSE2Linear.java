@@ -66,20 +66,35 @@ public class CSE2Linear {
     System.out.println("Enter a value that you wish to find");
     int x = myScanner.nextInt();
     
-    //linear search array for integer
-    for (i = 0; i < grades.length; i++) {
-        if ( x == grades[i] ) {
-            System.out.println(x + " was found on the list with " + (i + 1) + " iterations");
+    //binary search array for integer
+    int midpiont = 8;
+    int start = 0;
+    int end = 14;
+    int count = 0;
+    for ( count = 1; count < 15; count++) {
+        if ( x == grades[midpiont] ) {
+            System.out.println(x + " was found on the list with " + count + " iterations");
             break;
         }
-        if ( x < grades[i] ) {
-            System.out.println(x + " was not found on the list with " + (i + 1) + " iterations");
+        if ( x > grades[midpiont] && x < grades[midpiont + 1] ) {
+            System.out.println(x + " was not found on the list with " + count + " iterations");
             break;
         }
-        if ( x > grades[14] ) {
-            System.out.println(x + " was not found on the list with " + (15) + " iterations");
+        if ( x < grades[midpiont] && x > grades[midpiont - 1] ) {
+            System.out.println(x + " was not found on the list with " + count + " iterations");
             break;
         }
+        if ( x < grades[midpiont] ) {
+            start = start;
+            end = midpiont;
+            midpiont = (int) (midpiont/2);
+        }
+        if ( x > grades[midpiont] ) {
+            start = midpiont;
+            end = end;
+            midpiont = midpiont + ((int) (midpiont/2));
+        }
+        count++;
     }
     
     //Shuffle the 15 grades randomly and print new list
@@ -99,13 +114,13 @@ public class CSE2Linear {
     int y = myScanner.nextInt();
     
     //linear search array for integer
-    int count = 0;
+    int count1 = 0;
     for (i = 0; i < grades.length; i++) {
         if ( y == grades[i] ) {
             System.out.println(y + " was found on the list with " + (i + 1) + " iterations");
             break;
         }
-        count++;
+        count1++;
         if ( count == 14 ) {
             System.out.println(y + " was not found on the list with " + 15 + " iterations");
             break;
