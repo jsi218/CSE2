@@ -62,10 +62,10 @@ public class Search {
     System.out.print("Enter an int: ");
     int x = myScanner.nextInt();
     int n = array2.length;
-    int midpiont = (int) (n - 1)/2;
+    int midpiont = (int) 4999/2;
     boolean acceptable = false;
     int start = 0;
-    int end = n - 1;
+    int end = 4999;
     
     if ( x > 0) {
         while ( !acceptable ) {
@@ -73,25 +73,25 @@ public class Search {
                 System.out.println( x + " is in array2");
                 acceptable = true;
             }
-            else if ( array2[midpiont] > x && array2[midpiont - 1] < x ) {
+            if ( array2[midpiont] > x && array2[midpiont - 1] < x ) {
                 System.out.println( x + " is NOT is array2");
                 System.out.println( x + " is between " + array2[midpiont] + "and" + array2[midpiont - 1]);
                 acceptable = true;
             }
-            else if ( array2[midpiont] < x && array2[midpiont + 1] > x ) {
+            if ( array2[midpiont] < x && array2[midpiont + 1] > x ) {
                 System.out.println( x + " is NOT is array2");
                 System.out.println( x + " is between " + array2[midpiont] + "and" + array2[midpiont + 1]);
                 acceptable = true;
             }
-            else if (array2[midpiont] > x && array2[start] < x ) {
+            if (array2[midpiont] > x && array2[start] < x ) {
                 end = midpiont;
                 start = start;
-                midpiont = (int) ((start + end)/2);
+                midpiont = (int) (midpiont * .5);
             }
-            else if (array2[midpiont] < x && x < array2[end] ) {
+            if ( array2[midpiont] < x ) {
                 end = end;
                 start = midpiont;
-                midpiont = (int) ((start + end)/2);
+                midpiont = (int) (midpiont * 1.5);
             }
         }
     }
